@@ -1,36 +1,44 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import MathUserInteraction from './MathUserInteraction';
-import Result from './Result';
+import React from 'react';
+import { render } from 'react-dom';
 
-class App extends Component {
-  state = {
-    numQuestions:0, 
-    numCorrect:0
-  };  
-  calculatScore = answerRight => {
-    this.setState(prevState => ({
-      numQuestions : prevState.numQuestions + 1,
-      numCorrect: (answerRight ? prevState.numCorrect + 1 : prevState.numCorrect)
-    }));
-  };
 
-  render() {
+function Parent ({name}) {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">ReactND - Coding Practice</h1>
-        </header>
-        <div className="game">
-          <h2>Mental Math</h2>
-    	  <MathUserInteraction onResolve={this.calculatScore}/>
-		  <Result numCorrect={this.state.numCorrect} numQuestions={this.state.numQuestions}/>
+        <div>
+            <h1>Parent</h1>
+            <Child name={name}/>
         </div>
-      </div>
     );
-  }
 }
+
+function Child ({name}) {
+    return (
+        <div>
+            <h1>Child</h1>
+            <Grandchild name={name}/>
+        </div>
+    );
+}
+
+function Grandchild ({name}) {
+    return (
+        <div>
+            <h1>Grandchild</h1>
+            <h3>Name: {name}</h3>
+        </div>
+    );
+}
+
+class App extends React.Component {
+    render() {
+        const name = 'Tyler';
+
+        return (
+            <Parent name={name} />
+        );
+    }
+}
+
+render(<App />, document.getElementById('root'));
 
 export default App;
