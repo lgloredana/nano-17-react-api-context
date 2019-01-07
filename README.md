@@ -1,30 +1,24 @@
-# The purpose of this project
-This is a project which allows to see how the Redux and React libraries works together. 
+## Running the application
+ - `npm install` - for getting the required libs  
+ - `npm start` - for opening the application in browser
 
-Summary  
- - Shows how to convert a plain HTML application to one using React Components.   
- - Improve the code's organization by breaking out separate parts into reusable chunks. 
- - Shows how Redux can work with 2 states and 2 reducers
- - Use middleware for intercepting manipulation before actually dispatching the action.
+## About the application
 
-Implemented functionality:
+A game that shows an equation of the form X+Y+Z=P.   
+Here, X, Y, and Z are random numbers, and P is the proposed answer.   
+The user is able to answer weather it is true that the sum of X, Y, and Z
+equals the proposed answer P.   
+The user gets a point for each question the user answers correctly. 
 
- * Todos 
-   * add todo
-   * remove todo
-   * toggle todo  
-  
- * Goals  
-   * add goals
-   * remove goal
-    
- * Middleware
-   * implement middleware to achieve the following behavior:  
-     * Display an alert ` That's a great goal! ` whenever a new goal is added.
-     * Display ` Don't forget to [name of your todo item]! ` whenever a new todo item is added.
+The score is displayed in this format:   
 
-# Runing the application
- - Open index.html in browser.
+ `[number of correct answers]/[number of questions answered].`
  
+Every time the user answers a question, a new question that uses randomly 
+generated numbers is displayed.
 
- ![ScreenShot](img/todos-goals-ui.png)
+The application helps practice the trickiest part of React - managing state.
+
+![ScreenShot](src/img/initial-look.png)  
+
+![ScreenShot](src/img/show-result.png)
